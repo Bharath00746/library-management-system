@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="{% static 'css/updatebook.css' %}">
+</head>
+<body>
+    <form method="post" name="Bookdetails"  enctype="multipart/form-data">
+        <h1>Book Details</h1>
+        {% csrf_token %}
+        <label for="">Book Name</label>
+        <input type="text" name="Bookname" value="{{obj.Book_Name}}"><br>
+        <label for="">Code</label>
+        <input type="text" name="Code" value="{{obj.Book_code}}"><br>
+        <label for="">Author Name</label>
+        <input type="text" name="Authorname" value="{{obj.Author_Name}}"><br>
+        <label for="">Date</label>
+        <input type="date" name="date" value="{{obj.Date|date:'Y-m-d'}}"><br>
+        <!-- <label for="">Staus</label>
+        <input type="text" name="Status"><br> -->
+        <label for="">Amount</label>
+        <input type="number" name="Bookamount" value="{{obj.Book_Amount}}"><br>
+        <!-- <label for="">Created Date</label>
+        <input type="date" name="Createdate"><br>
+        <label for="">Created By</label>
+        <input type="datee" name="Createby"><br>
+        <label for="">Updated Date</label>
+        <input type="date" name="Updatedate"><br>
+        <label for="">Updated By</label>
+        <input type="text" name="Updateby"><br> -->
+        <label for="">Upload Image</label>
+        <input type="file" name="uploadnew">
+        <br>
+        <button>Submit</button>
+
+    </form>
+</body>
+</html>
+</body>
+</html>

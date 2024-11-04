@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <form method="post" name="Signup">
+        {% csrf_token %}
+        <h1>Create your account</h1>
+        <label for="">Name</label>
+        <input type="text" name="Name" placeholder="Enter your name" required><br>
+        <label for="">Date of Birth</label>
+        <input type="date" name="Dateofbirth" required class="dob"><br>
+        <!-- <label for="">Gender</label>
+        <input type="radio" name="Gender" name="Male" required>
+        <label for="">Male</label>
+        <input type="radio" name="Gender" name="Female" required>
+        <label for="">Female</label><br> -->
+        <label for="">Email</label>
+        <input type="text" name="Email" placeholder="Enter Your Email" required><br>
+        <label for="">Mobile Number</label>
+        <input type="number" name="Mob" placeholder="Enter Your Mobile Number" required><br>
+        <label for="">Password</label>
+        <input type="password" name="Password" placeholder="Enter your Password" required><br>
+        <button>Sign Up</button>
+        <label for="" style="text-align: center; margin-bottom: 3%;" >Already have a account <a href="{% url 'login' %}">Click Here</a></label>
+    </form>
+
+    <script>
+
+        // function regno(){
+        //     var name=document.Signup.Name.value;
+        //     var dob=document.Signup.Dateofbirth.value;
+        //     // var gender=document.Signup.Gender.value;
+        //     var email=document.Signup.Email.value;
+        //     var mb=document.Signup.Mob.value;
+        //     var pass=document.Signup.Password.value;
+
+        //     alert('Sign Up Successfully')
+        // }
+
+    </script>
+</body>
+</html>

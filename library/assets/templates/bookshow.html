@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="{% static 'css/bookshow.css' %}">
+</head>
+
+<body>
+    <h1>Books Details</h1>
+    <h1 style="float: right; color: blue;">Welcome {{name}}! </h1>
+    <form action="" name="booksearch" method="post">
+        {% csrf_token %}
+        <label for="search">Book Name</label>
+        <input type="text" name="searchbook">&nbsp
+        <button type="submit">Search</button>
+        <button type="submit"><a href="{% url 'login' %}">Logout</button>
+    </form>
+    <table>
+        <tr>
+            <th style="color: black">Book Name</th>
+            <th style="color: black">Book Code</th>
+            <th style="color: black">Author Name</th>
+            <th style="color: black">Date</th>
+            <th style="color: black">Status</th>
+            <th style="color: black">Amount</th>
+            <th style="color: black">Book Image</th>
+            <th style="color: black">Created Date</th>
+            <th style="color: black">Updated Date</th>
+            <th style="color: black">Action</th>
+            <th style="color: black">Remove</th>
+        </tr>
+        {% for i in obj %}
+        <tr>
+            <td style="color: black">{{i.Book_Name}}</td>
+            <td style="color: black">{{i.Book_code}}</td>
+            <td style="color: black">{{i.Author_Name}}</td>
+            <td style="color: black">{{i.Date}}</td>
+            <td style="color: black">{{i.Status}}</td>
+            <td style="color: black">{{i.Book_Amount}}</td>
+            <td><img src="{{i.Book_Img.url}}" style="width:100px;height:100px;"></td>
+            <td style="color: black">{{i.Created_Date}}</td>
+            <td style="color: black">{{i.Updated_Date}}</td>
+            <td><button><a href="{% url 'takebook' i.id%}">Take</a></button></td>
+            <td><button><a href="{% url 'returnbook'  i.id%}">Return</a></button></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
